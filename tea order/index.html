@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Generator</title>
+    <link rel="stylesheet" href="tea.css">
+</head>
+<body>
+    <center>
+   
+    <div class="image-container">
+        <div class="overlay-text">   
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              background-image: url(/grains-cup-coffee-background-wallpaper.jpg);
+              background-size: cover;
+              font-family: cursive;
+            }
+            .container {
+              text-align: center;
+              margin-top: 60px;
+              border: 2px solid black;
+              width: 50%;
+              height: 500px;
+              border-radius: 50px;
+              backdrop-filter: blur(7px);
+
+            }
+            label{
+                border: 2px solid black;
+                border-radius: 30px;
+                padding: 10px;
+              }
+
+            button{
+              background-color:transparent;
+              border: 2px solid black;
+            }
+
+              button:hover{
+                size: 60px ;
+            }
+            a{
+              color: black;
+            }
+            button:hover{
+              transform: scale(1.05);
+              text-decoration: underline;
+              opacity:50px;
+
+            }
+          </style>
+        </head>
+        <body>
+            <b>
+              <a href="/index.html">
+          <h1 style="font-size: 50px;">Brew Cafe</h1></a>
+          <div class="container">
+            <h1>Billing Machine</h1></a><br>
+            <label>
+                <input type="radio" name="drink" value="badam"> Badam
+              </label> &nbsp&nbsp&nbsp
+            <label>
+              <input type="radio" name="drink" value="tea"> Tea
+            </label>&nbsp&nbsp&nbsp
+            <label>
+              <input type="radio" name="drink" value="coffee"> Coffee
+            </label>&nbsp&nbsp&nbsp
+            <label>
+                <input type="radio" name="drink" value="soft"> Soft Drinks
+              </label>
+            <br>
+            <button onclick="countDrink()" style="margin-top: 55px; border-radius:30px; height:40px; width:130px"><b>Add Drink</b></button>
+            <p>Badam Count: <span id="badamCount">0</span></p>
+            <p>Tea Count: <span id="teaCount">0</span></p>
+            <p>Coffee Count: <span id="coffeeCount">0</span></p>
+            <p>Soft Drink: <span id="softCount">0</span></p>
+            <p><h1>Grand Total:</h1> <span id="total"><b>0</b></span></p>
+            <a href="/next.html">
+            <button  style="margin-top: 40px; border-radius:30px; height:45px; width:150px;"><b>Confirm Order</b></button></a>
+            
+          </div>
+         <script>
+            let badamCount = 0;
+            let teaCount = 0;
+            let coffeeCount = 0;
+            let softCount = 0;
+            function countDrink() {
+              const selectedDrink = document.querySelector('input[name="drink"]:checked');
+              if (selectedDrink) {
+                const drinkType = selectedDrink.value;
+                if (drinkType === 'badam') {
+                    badamCount++;
+                    document.getElementById('badamCount').textContent = badamCount;
+                  }
+                else if (drinkType === 'tea') {
+                  teaCount++;
+                  document.getElementById('teaCount').textContent = teaCount;
+                }
+                if (drinkType === 'coffee') {
+                  coffeeCount++;
+                  document.getElementById('coffeeCount').textContent = coffeeCount;
+                }
+                else if (drinkType === 'soft') {
+                    softCount++;
+                    document.getElementById('softCount').textContent = softCount;
+                  }
+              }
+              
+              let total = (teaCount * 10) + (coffeeCount * 12) + (badamCount * 15) + (softCount * 20);
+              document.getElementById('total').textContent = total;
+              
+  
+            }
+          </script></b>
+        </body>
+        </html>
+    </div></center>
+</body>
+</html>
